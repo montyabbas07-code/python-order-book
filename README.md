@@ -17,14 +17,16 @@ A limit order book is the core data structure used by financial exchanges to mat
 - [x] Benchmark suite
 
 ## Architecture
+
+```
 Order (Python dataclass)
-|
-v
+    |
+    v
 OrderBook (matching engine)
-|
-+---> Trades
-+---> Updated book state (bids/asks)
-plain
+    |
+    +---> Trades
+    +---> Updated book state (bids/asks)
+```
 
 ## Installation
 
@@ -32,19 +34,33 @@ plain
 git clone https://github.com/montyabbas07-code/cpp-order-book.git
 cd cpp-order-book
 pip install -r requirements.txt
-Testing
-bash
+```
+
+## Testing
+
+```bash
 python -m pytest tests/
-Performance
-Table
-Metric	Value	Notes
-Resting order throughput	~1,280,000 orders/sec	Python 3.13, Windows. Non-crossing workload (dictionary inserts).
-Matching throughput	Not yet benchmarked	Requires crossing-price workload.
-Future Work
-Port matching engine to C (FOA coursework integration)
-Port to C++ with std::map for price levels and std::thread for concurrency
-TCP socket interface for external order entry
-Lock-free queue for the matching hot path
-Realistic crossing benchmark
-Why I Built This
-After taking Principles of Finance and Introductory Microeconomics, I became interested in how financial markets price and allocate risk. The most interesting part was not the theory, but the systems underneath — the matching engines that process millions of orders per second. This project is my attempt to understand and build that infrastructure from the ground up.
+```
+
+## Performance
+
+| Metric | Value | Notes |
+|--------|-------|-------|
+| Resting order throughput | ~1,280,000 orders/sec | Python 3.13, Windows. Non-crossing workload (dictionary inserts). |
+| Matching throughput | Not yet benchmarked | Requires crossing-price workload. |
+
+## Future Work
+
+- Port matching engine to C (FOA coursework integration)
+- Port to C++ with `std::map` for price levels and `std::thread` for concurrency
+- TCP socket interface for external order entry
+- Lock-free queue for the matching hot path
+- Realistic crossing benchmark
+
+## Why I Built This
+
+After taking **Principles of Finance** and **Introductory Microeconomics**, I became interested in how financial markets price and allocate risk. The most interesting part was not the theory, but the systems underneath — the matching engines that process millions of orders per second. This project is my attempt to understand and build that infrastructure from the ground up.
+
+## License
+
+MIT
