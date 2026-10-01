@@ -32,7 +32,7 @@ OrderBook (matching engine)
 
 ```bash
 git clone https://github.com/montyabbas07-code/cpp-order-book.git
-cd cpp-order-book
+cd python-order-book
 pip install -r requirements.txt
 ```
 
